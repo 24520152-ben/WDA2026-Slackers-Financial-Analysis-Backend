@@ -5,10 +5,19 @@ from src.fundamental_analysis_agent.router import router as fundamental_analysis
 from src.technical_analysis_agent.router import router as technical_analysis_router
 from src.investment_analysis_agent.router import router as investment_analysis_router
 from src.router_agent.router import router as chat_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Financial Analysis Backend",
     description="Multi-Agent System for Financial Analysis",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
 
 app.include_router(fundamental_analysis_router)
