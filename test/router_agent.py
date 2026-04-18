@@ -14,10 +14,10 @@ def test(url: str, message: str) -> None:
         
         data = response.json()
         
-        print(data["reply"])
-        print(data["investment_analysis"])
-        print(data["technical_analysis"])
-        print(data["fundamental_analysis"])
+        print(data["reply"], "\n\n")
+        print(data["investment_analysis"], "\n\n")
+        print(data["technical_analysis"], "\n\n")
+        print(data["fundamental_analysis"], "\n\n")
         
     except requests.exceptions.RequestException as e:
         print(str(e))

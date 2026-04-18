@@ -44,6 +44,10 @@ async def get_coordinated_consult(ticker: str, user_message: str) -> dict:
     ]
     
     final_summary = await call_ollama_cloud(messages)
+
+    start = final_summary.rfind("</think>")
+    if start != -1:
+        final_summary = final_summary[start + 8:]
     
     return {
         "final_summary": final_summary,

@@ -82,4 +82,8 @@ async def get_fa_report(ticker: str) -> str:
     ]
     
     report = await call_ollama_cloud(messages)
+
+    start = report.rfind("</think>")
+    if start != -1:
+        return report[start + 8:]
     return report
